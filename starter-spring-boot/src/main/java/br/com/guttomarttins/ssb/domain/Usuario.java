@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "USUARIO")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -37,7 +39,6 @@ public class Usuario implements Serializable {
 	}
 
 	public Usuario(Long id, String nome, String email, String senha) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
